@@ -5,7 +5,7 @@ export default function SignupSection() {
     name: '',
     email: '',
     branch: '',
-    years: '',
+    status: '',
   });
   const [civilianForm, setCivilianForm] = useState({
     email: '',
@@ -209,12 +209,12 @@ export default function SignupSection() {
                 className="block text-[10px] font-bold tracking-[4px] uppercase mb-1.5"
                 style={{ fontFamily: "'Oswald', sans-serif", color: 'var(--khaki-dark)' }}
               >
-                Years Served
+                Status
               </label>
               <input
                 type="text"
                 placeholder="e.g. 2012–2018"
-                value={veteranForm.years}
+                value={veteranForm.status}
                 onChange={(e) => setVeteranForm({ ...veteranForm, years: e.target.value })}
                 className="w-full px-3.5 py-2.5 border border-b-2 outline-none transition-colors"
                 style={{
