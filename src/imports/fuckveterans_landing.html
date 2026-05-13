@@ -1,0 +1,1580 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fuck Veterans | Hook Up. Fall In. Find Love.</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Black+Ops+One&family=Special+Elite&family=Oswald:wght@300;400;600;700&family=IM+Fell+English&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --od-green: #4a5240;
+    --od-dark: #2b2e26;
+    --od-light: #6b7058;
+    --khaki: #c8b87a;
+    --khaki-dark: #9c8a52;
+    --tan: #d4c49a;
+    --cream: #f0e8d0;
+    --dirty-white: #e8dfc8;
+    --rust: #8b3a1a;
+    --blood: #6b1f1f;
+    --olive-accent: #7a8c5a;
+    --paper: #d6c9a3;
+    --ink: #1a1a14;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--od-dark);
+    color: var(--cream);
+    font-family: 'Special Elite', cursive;
+    overflow-x: hidden;
+  }
+
+  /* CAMO TEXTURE via CSS */
+  .camo-bg {
+    background-color: var(--od-dark);
+    background-image:
+      radial-gradient(ellipse 80px 60px at 20% 30%, #3a3f2e 0%, transparent 100%),
+      radial-gradient(ellipse 60px 80px at 70% 60%, #2e3326 0%, transparent 100%),
+      radial-gradient(ellipse 100px 40px at 50% 20%, #3f4535 0%, transparent 100%),
+      radial-gradient(ellipse 50px 70px at 80% 80%, #252a20 0%, transparent 100%),
+      radial-gradient(ellipse 90px 50px at 10% 70%, #333829 0%, transparent 100%);
+  }
+
+  .grain-overlay {
+    position: relative;
+  }
+  .grain-overlay::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+    opacity: 0.15;
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 100;
+    background: rgba(27, 30, 22, 0.95);
+    border-bottom: 2px solid var(--khaki-dark);
+    padding: 12px 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .nav-logo {
+    font-family: 'Black Ops One', cursive;
+    font-size: 22px;
+    color: var(--khaki);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+  .nav-logo span { color: var(--rust); }
+  .nav-links a {
+    font-family: 'Oswald', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 3px;
+    color: var(--dirty-white);
+    text-decoration: none;
+    margin-left: 30px;
+    text-transform: uppercase;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--khaki); }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    padding: 120px 40px 80px;
+    overflow: hidden;
+  }
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 120px 80px at 15% 25%, #3a3f2e88 0%, transparent 100%),
+      radial-gradient(ellipse 80px 120px at 75% 55%, #2e332688 0%, transparent 100%),
+      radial-gradient(ellipse 140px 60px at 50% 75%, #3f453566 0%, transparent 100%),
+      radial-gradient(ellipse 60px 100px at 85% 15%, #25282044 0%, transparent 100%),
+      radial-gradient(ellipse 100px 80px at 30% 80%, #33382966 0%, transparent 100%),
+      linear-gradient(160deg, #1a1e16 0%, #2b2e26 40%, #1f2219 100%);
+    z-index: 0;
+  }
+
+  /* WW2 film grain */
+  .hero-bg::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 2px,
+      rgba(0,0,0,0.03) 2px,
+      rgba(0,0,0,0.03) 4px
+    );
+    z-index: 1;
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 900px;
+    text-align: center;
+  }
+
+  .hero-classified {
+    display: inline-block;
+    font-family: 'Oswald', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 8px;
+    color: var(--blood);
+    border: 2px solid var(--blood);
+    padding: 4px 16px;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    transform: rotate(-1deg);
+  }
+
+  .hero-title {
+    font-family: 'Black Ops One', cursive;
+    font-size: clamp(52px, 8vw, 96px);
+    line-height: 0.95;
+    color: var(--khaki);
+    text-transform: uppercase;
+    letter-spacing: -1px;
+    margin-bottom: 8px;
+    text-shadow: 4px 4px 0 rgba(0,0,0,0.5);
+  }
+  .hero-title .red { color: var(--rust); }
+
+  .hero-subtitle-big {
+    font-family: 'Special Elite', cursive;
+    font-size: clamp(18px, 3vw, 28px);
+    color: var(--dirty-white);
+    margin-bottom: 30px;
+    line-height: 1.4;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .hero-body {
+    font-family: 'Special Elite', cursive;
+    font-size: 16px;
+    color: var(--tan);
+    max-width: 620px;
+    margin: 0 auto 40px;
+    line-height: 1.8;
+  }
+
+  .dog-tags {
+    display: inline-flex;
+    gap: 8px;
+    margin-bottom: 40px;
+  }
+  .dog-tag {
+    background: linear-gradient(135deg, #c0c0c0, #a0a0a0);
+    color: #1a1a1a;
+    font-family: 'Oswald', sans-serif;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    padding: 6px 14px;
+    border-radius: 3px;
+    text-transform: uppercase;
+    box-shadow: 2px 2px 0 rgba(0,0,0,0.4);
+  }
+
+  .cta-primary {
+    display: inline-block;
+    background: var(--rust);
+    color: var(--cream);
+    font-family: 'Black Ops One', cursive;
+    font-size: 18px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 18px 48px;
+    border: none;
+    cursor: pointer;
+    position: relative;
+    transition: all 0.2s;
+    clip-path: polygon(8px 0%, 100% 0%, calc(100% - 8px) 100%, 0% 100%);
+  }
+  .cta-primary::before {
+    content: '';
+    position: absolute;
+    inset: 3px;
+    border: 1px solid rgba(255,255,255,0.2);
+    clip-path: polygon(6px 0%, 100% 0%, calc(100% - 6px) 100%, 0% 100%);
+  }
+  .cta-primary:hover {
+    background: #a04420;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(139,58,26,0.4);
+  }
+
+  /* SECTION STYLES */
+  section {
+    padding: 80px 40px;
+    position: relative;
+  }
+
+  .section-header {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 60px;
+  }
+  .section-header-line {
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(to right, var(--khaki-dark), transparent);
+  }
+  .section-header-line.right {
+    background: linear-gradient(to left, var(--khaki-dark), transparent);
+  }
+  .section-label {
+    font-family: 'Oswald', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 6px;
+    color: var(--khaki-dark);
+    text-transform: uppercase;
+  }
+  .section-title {
+    font-family: 'Black Ops One', cursive;
+    font-size: clamp(32px, 5vw, 52px);
+    color: var(--khaki);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    line-height: 1;
+    margin-bottom: 16px;
+    text-shadow: 3px 3px 0 rgba(0,0,0,0.4);
+  }
+  .section-title .accent { color: var(--rust); }
+
+  /* SIGN UP SECTION */
+  .signup-section {
+    background: #1a1e16;
+    border-top: 3px solid var(--khaki-dark);
+    border-bottom: 3px solid var(--khaki-dark);
+  }
+  .signup-inner {
+    max-width: 900px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: start;
+  }
+
+  .signup-box {
+    background: rgba(74,82,64,0.2);
+    border: 1px solid var(--khaki-dark);
+    padding: 40px;
+    position: relative;
+  }
+  .signup-box::before {
+    content: '';
+    position: absolute;
+    top: -1px; left: -1px;
+    width: 30px; height: 30px;
+    border-top: 3px solid var(--rust);
+    border-left: 3px solid var(--rust);
+  }
+  .signup-box::after {
+    content: '';
+    position: absolute;
+    bottom: -1px; right: -1px;
+    width: 30px; height: 30px;
+    border-bottom: 3px solid var(--rust);
+    border-right: 3px solid var(--rust);
+  }
+
+  .signup-box h3 {
+    font-family: 'Black Ops One', cursive;
+    font-size: 24px;
+    color: var(--khaki);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 8px;
+  }
+  .signup-box .rank {
+    font-family: 'Oswald', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 5px;
+    color: var(--rust);
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    display: block;
+  }
+  .signup-box p {
+    font-family: 'Special Elite', cursive;
+    font-size: 14px;
+    color: var(--tan);
+    line-height: 1.8;
+    margin-bottom: 24px;
+  }
+
+  .field-group {
+    margin-bottom: 16px;
+  }
+  .field-group label {
+    display: block;
+    font-family: 'Oswald', sans-serif;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 4px;
+    color: var(--khaki-dark);
+    text-transform: uppercase;
+    margin-bottom: 6px;
+  }
+  .field-group input, .field-group textarea, .field-group select {
+    width: 100%;
+    background: rgba(0,0,0,0.3);
+    border: 1px solid var(--od-light);
+    border-bottom: 2px solid var(--khaki-dark);
+    color: var(--cream);
+    font-family: 'Special Elite', cursive;
+    font-size: 14px;
+    padding: 10px 14px;
+    outline: none;
+    transition: border-color 0.2s;
+  }
+  .field-group input:focus, .field-group textarea:focus, .field-group select:focus {
+    border-color: var(--khaki);
+    background: rgba(0,0,0,0.4);
+  }
+  .field-group select option { background: var(--od-dark); }
+
+  .submit-btn {
+    width: 100%;
+    background: var(--od-green);
+    color: var(--khaki);
+    font-family: 'Black Ops One', cursive;
+    font-size: 16px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    border: 2px solid var(--khaki-dark);
+    padding: 14px;
+    cursor: pointer;
+    transition: all 0.2s;
+    margin-top: 8px;
+  }
+  .submit-btn:hover {
+    background: var(--rust);
+    color: var(--cream);
+    border-color: var(--rust);
+  }
+
+  /* MISSION IN ACTION / INSTAGRAM FAKES */
+  .content-grid {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+
+  .fake-ig {
+    background: #1a1a1a;
+    border: 1px solid #333;
+    border-radius: 4px;
+    overflow: hidden;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  }
+  .ig-header {
+    display: flex;
+    align-items: center;
+    padding: 10px 12px;
+    gap: 10px;
+    border-bottom: 1px solid #222;
+  }
+  .ig-avatar {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--od-green), var(--khaki-dark));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    font-weight: 700;
+    color: white;
+    border: 2px solid transparent;
+    background-clip: padding-box;
+    position: relative;
+  }
+  .ig-avatar::before {
+    content: '';
+    position: absolute;
+    inset: -2px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+    z-index: -1;
+  }
+  .ig-username {
+    font-size: 13px;
+    font-weight: 600;
+    color: #f5f5f5;
+    flex: 1;
+  }
+  .ig-more { color: #999; font-size: 18px; cursor: pointer; }
+
+  .ig-video-thumb {
+    width: 100%;
+    aspect-ratio: 1;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* Video thumb backgrounds - using CSS art for WW2/military aesthetic */
+  .ig-thumb-1 {
+    background:
+      radial-gradient(ellipse 100px 70px at 60% 40%, #3a3f2e88 0%, transparent 100%),
+      linear-gradient(160deg, #1a1e16 0%, #2b3020 50%, #1a1a14 100%);
+  }
+  .ig-thumb-2 {
+    background:
+      radial-gradient(circle at 50% 50%, #4a5240cc 0%, #1a1e1600 70%),
+      linear-gradient(135deg, #1e1a10 0%, #2e2a1a 50%, #1a1814 100%);
+  }
+  .ig-thumb-3 {
+    background:
+      radial-gradient(ellipse 80px 100px at 40% 60%, #3f3020aa 0%, transparent 100%),
+      linear-gradient(180deg, #141814 0%, #222a1a 60%, #1a1a14 100%);
+  }
+
+  .ig-play-btn {
+    width: 52px;
+    height: 52px;
+    background: rgba(255,255,255,0.85);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: transform 0.2s;
+    position: relative;
+    z-index: 2;
+  }
+  .ig-play-btn::after {
+    content: '';
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 9px 0 9px 18px;
+    border-color: transparent transparent transparent #1a1a1a;
+    margin-left: 4px;
+  }
+  .ig-play-btn:hover { transform: scale(1.1); }
+
+  .ig-thumb-overlay {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 16px;
+    background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, transparent 60%);
+  }
+  .ig-thumb-tag {
+    font-size: 11px;
+    font-weight: 700;
+    color: white;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 4px;
+    opacity: 0.85;
+  }
+  .ig-reel-badge {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: transparent;
+    z-index: 3;
+  }
+  .ig-reel-badge svg { width: 20px; height: 20px; }
+
+  /* WW2-style photo effects for thumbnails */
+  .ig-person-art {
+    position: absolute;
+    inset: 0;
+    opacity: 0.4;
+  }
+
+  .ig-bottom {
+    padding: 10px 12px 12px;
+  }
+  .ig-actions {
+    display: flex;
+    gap: 14px;
+    margin-bottom: 8px;
+    align-items: center;
+  }
+  .ig-action-icon {
+    width: 22px; height: 22px; cursor: pointer;
+    filter: invert(1) brightness(0.8);
+  }
+  .ig-likes {
+    font-size: 13px;
+    font-weight: 600;
+    color: #f5f5f5;
+    margin-bottom: 4px;
+  }
+  .ig-caption {
+    font-size: 13px;
+    color: #f5f5f5;
+    line-height: 1.4;
+  }
+  .ig-caption .username { font-weight: 600; }
+  .ig-comments {
+    font-size: 12px;
+    color: #8e8e8e;
+    margin-top: 4px;
+    cursor: pointer;
+  }
+  .ig-time {
+    font-size: 10px;
+    color: #5c5c5c;
+    margin-top: 6px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  /* SVG person silhouettes */
+  .silhouette-soldier {
+    position: absolute;
+    bottom: 20px;
+    right: 30px;
+    width: 80px;
+    height: 120px;
+    opacity: 0.25;
+  }
+
+  /* PODCAST SECTION */
+  .podcast-section {
+    background: #161a12;
+    border-top: 1px solid var(--od-light);
+  }
+  .podcast-grid {
+    max-width: 900px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+  }
+  .podcast-card {
+    background: rgba(74,82,64,0.15);
+    border: 1px solid var(--od-light);
+    padding: 24px;
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+    text-decoration: none;
+    color: inherit;
+    transition: background 0.2s;
+    position: relative;
+  }
+  .podcast-card:hover {
+    background: rgba(74,82,64,0.3);
+  }
+  .podcast-thumb {
+    width: 80px;
+    height: 80px;
+    background: var(--od-dark);
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--od-light);
+    position: relative;
+    overflow: hidden;
+  }
+  .podcast-thumb-ig { background: linear-gradient(135deg, #405de6, #5851db, #833ab4, #c13584, #e1306c, #fd1d1d); }
+  .podcast-play {
+    width: 30px; height: 30px;
+    background: rgba(255,255,255,0.9);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    z-index: 2;
+  }
+  .podcast-play::after {
+    content: '';
+    width: 0; height: 0;
+    border-style: solid;
+    border-width: 6px 0 6px 12px;
+    border-color: transparent transparent transparent #111;
+    margin-left: 2px;
+  }
+  .podcast-info h4 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--khaki);
+    margin-bottom: 4px;
+  }
+  .podcast-info p {
+    font-family: 'Special Elite', cursive;
+    font-size: 13px;
+    color: var(--tan);
+    line-height: 1.5;
+  }
+  .podcast-info .pod-source {
+    font-size: 11px;
+    color: var(--od-light);
+    font-family: 'Oswald', sans-serif;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-top: 6px;
+  }
+
+  /* COMING SOON */
+  .coming-soon-section {
+    background: var(--blood);
+    background-image:
+      repeating-linear-gradient(45deg, transparent, transparent 10px, rgba(0,0,0,0.1) 10px, rgba(0,0,0,0.1) 20px);
+    text-align: center;
+    padding: 100px 40px;
+    border-top: 4px solid var(--rust);
+    border-bottom: 4px solid var(--rust);
+    position: relative;
+    overflow: hidden;
+  }
+  .coming-soon-section::before {
+    content: 'CLASSIFIED';
+    position: absolute;
+    font-family: 'Black Ops One', cursive;
+    font-size: 200px;
+    color: rgba(0,0,0,0.1);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(-15deg);
+    white-space: nowrap;
+    pointer-events: none;
+    letter-spacing: -5px;
+  }
+  .coming-soon-inner { position: relative; z-index: 2; max-width: 700px; margin: 0 auto; }
+  .coming-soon-label {
+    font-family: 'Oswald', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 8px;
+    color: rgba(255,255,255,0.6);
+    text-transform: uppercase;
+    margin-bottom: 20px;
+  }
+  .coming-soon-title {
+    font-family: 'Black Ops One', cursive;
+    font-size: clamp(36px, 6vw, 64px);
+    color: var(--cream);
+    line-height: 1;
+    text-transform: uppercase;
+    margin-bottom: 24px;
+    text-shadow: 0 4px 20px rgba(0,0,0,0.4);
+  }
+  .coming-soon-desc {
+    font-family: 'Special Elite', cursive;
+    font-size: 18px;
+    color: rgba(240,232,208,0.85);
+    line-height: 1.8;
+    font-style: italic;
+  }
+  .dependa-badge {
+    display: inline-block;
+    background: var(--khaki);
+    color: var(--blood);
+    font-family: 'Oswald', sans-serif;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 4px;
+    padding: 4px 12px;
+    text-transform: uppercase;
+    margin: 20px 0 0;
+  }
+
+  /* ABOUT */
+  .about-section {
+    background: var(--od-dark);
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 60px;
+    align-items: center;
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+  .about-text h2 {
+    font-family: 'Black Ops One', cursive;
+    font-size: 42px;
+    color: var(--khaki);
+    text-transform: uppercase;
+    line-height: 1;
+    margin-bottom: 24px;
+    text-shadow: 3px 3px 0 rgba(0,0,0,0.4);
+  }
+  .about-text p {
+    font-family: 'Special Elite', cursive;
+    font-size: 16px;
+    color: var(--tan);
+    line-height: 1.9;
+    margin-bottom: 20px;
+  }
+  .about-stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+  .stat-box {
+    background: rgba(74,82,64,0.2);
+    border: 1px solid var(--od-light);
+    padding: 24px 20px;
+    text-align: center;
+    position: relative;
+  }
+  .stat-box::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 3px;
+    background: var(--rust);
+  }
+  .stat-number {
+    font-family: 'Black Ops One', cursive;
+    font-size: 38px;
+    color: var(--khaki);
+    display: block;
+    line-height: 1;
+    margin-bottom: 6px;
+  }
+  .stat-label {
+    font-family: 'Oswald', sans-serif;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    color: var(--od-light);
+    text-transform: uppercase;
+  }
+
+  /* SHOP SECTION */
+  .shop-section {
+    background: #111410;
+    text-align: center;
+    padding: 100px 40px;
+    border-top: 1px solid var(--od-light);
+    position: relative;
+  }
+  .shop-section::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: repeating-linear-gradient(
+      90deg,
+      transparent 0px,
+      transparent 39px,
+      rgba(74,82,64,0.06) 39px,
+      rgba(74,82,64,0.06) 40px
+    ),
+    repeating-linear-gradient(
+      0deg,
+      transparent 0px,
+      transparent 39px,
+      rgba(74,82,64,0.06) 39px,
+      rgba(74,82,64,0.06) 40px
+    );
+  }
+  .shop-inner { position: relative; z-index: 1; max-width: 600px; margin: 0 auto; }
+  .shop-inner h2 {
+    font-family: 'Black Ops One', cursive;
+    font-size: clamp(36px, 5vw, 56px);
+    color: var(--khaki);
+    text-transform: uppercase;
+    margin-bottom: 16px;
+    text-shadow: 4px 4px 0 rgba(0,0,0,0.5);
+  }
+  .shop-inner p {
+    font-family: 'Special Elite', cursive;
+    font-size: 17px;
+    color: var(--tan);
+    margin-bottom: 40px;
+    line-height: 1.7;
+  }
+  .shop-items-preview {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-bottom: 40px;
+    flex-wrap: wrap;
+  }
+  .shop-tag {
+    background: rgba(74,82,64,0.3);
+    border: 1px solid var(--od-light);
+    font-family: 'Oswald', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 3px;
+    color: var(--dirty-white);
+    padding: 6px 16px;
+    text-transform: uppercase;
+  }
+  .cta-shop {
+    display: inline-block;
+    background: transparent;
+    color: var(--khaki);
+    font-family: 'Black Ops One', cursive;
+    font-size: 18px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 18px 52px;
+    border: 2px solid var(--khaki-dark);
+    transition: all 0.2s;
+  }
+  .cta-shop:hover {
+    background: var(--khaki-dark);
+    color: var(--ink);
+  }
+
+  /* FOOTER */
+  footer {
+    background: #0d0f0b;
+    padding: 40px;
+    text-align: center;
+    border-top: 1px solid #2a2e24;
+  }
+  footer .footer-logo {
+    font-family: 'Black Ops One', cursive;
+    font-size: 20px;
+    color: var(--od-light);
+    letter-spacing: 3px;
+    margin-bottom: 12px;
+  }
+  footer p {
+    font-family: 'Special Elite', cursive;
+    font-size: 12px;
+    color: #444;
+    line-height: 1.8;
+  }
+
+  /* STAMP DECORATION */
+  .stamp {
+    display: inline-block;
+    font-family: 'Oswald', sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    border: 3px solid;
+    padding: 6px 16px;
+    transform: rotate(-5deg);
+  }
+  .stamp-red { color: var(--rust); border-color: var(--rust); }
+  .stamp-green { color: var(--olive-accent); border-color: var(--olive-accent); }
+
+  /* CIVILIAN SIGNUP */
+  .civilian-section {
+    background: #1e2118;
+    border-top: 1px solid var(--od-light);
+    border-bottom: 1px solid var(--od-light);
+  }
+  .civilian-inner {
+    max-width: 700px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  .civilian-inner p {
+    font-family: 'Special Elite', cursive;
+    font-size: 17px;
+    color: var(--tan);
+    margin-bottom: 30px;
+    line-height: 1.8;
+  }
+  .email-row {
+    display: flex;
+    gap: 0;
+    max-width: 500px;
+    margin: 0 auto;
+  }
+  .email-row input {
+    flex: 1;
+    background: rgba(0,0,0,0.4);
+    border: 2px solid var(--od-light);
+    border-right: none;
+    color: var(--cream);
+    font-family: 'Special Elite', cursive;
+    font-size: 14px;
+    padding: 14px 18px;
+    outline: none;
+  }
+  .email-row input::placeholder { color: var(--od-light); }
+  .email-row input:focus { border-color: var(--khaki); }
+  .email-row button {
+    background: var(--od-green);
+    color: var(--khaki);
+    font-family: 'Oswald', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    border: 2px solid var(--od-light);
+    padding: 14px 24px;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: all 0.2s;
+  }
+  .email-row button:hover {
+    background: var(--rust);
+    border-color: var(--rust);
+    color: var(--cream);
+  }
+
+  /* DECORATIVE ELEMENTS */
+  .divider-stars {
+    text-align: center;
+    color: var(--khaki-dark);
+    font-size: 20px;
+    letter-spacing: 16px;
+    padding: 10px 0;
+  }
+
+  .section-dark { background: #171b13; }
+
+  /* RESPONSIVE */
+  @media (max-width: 768px) {
+    nav { padding: 12px 20px; }
+    .nav-links { display: none; }
+    section { padding: 60px 20px; }
+    .signup-inner { grid-template-columns: 1fr; gap: 30px; }
+    .content-grid { grid-template-columns: 1fr; max-width: 400px; }
+    .about-grid { grid-template-columns: 1fr; }
+    .podcast-grid { grid-template-columns: 1fr; }
+    .email-row { flex-direction: column; }
+    .email-row input { border-right: 2px solid var(--od-light); border-bottom: none; }
+    .email-row button { border-top: none; }
+  }
+
+  /* ANIMATION */
+  @keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .hero-content > * {
+    animation: fadeInUp 0.8s ease forwards;
+    opacity: 0;
+  }
+  .hero-content > *:nth-child(1) { animation-delay: 0.1s; }
+  .hero-content > *:nth-child(2) { animation-delay: 0.25s; }
+  .hero-content > *:nth-child(3) { animation-delay: 0.4s; }
+  .hero-content > *:nth-child(4) { animation-delay: 0.55s; }
+  .hero-content > *:nth-child(5) { animation-delay: 0.65s; }
+  .hero-content > *:nth-child(6) { animation-delay: 0.75s; }
+
+  /* PATCH decoration */
+  .patch-row {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+  }
+  .patch {
+    width: 70px; height: 70px;
+    border-radius: 50%;
+    border: 2px solid var(--od-light);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Black Ops One', cursive;
+    font-size: 8px;
+    text-align: center;
+    line-height: 1.2;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--khaki);
+    background: rgba(74,82,64,0.2);
+  }
+
+  /* DECORATIVE border lines */
+  .tactical-border {
+    border: 1px solid var(--od-light);
+    position: relative;
+    padding: 40px;
+  }
+  .tactical-border::before {
+    content: '';
+    position: absolute;
+    top: 6px; left: 6px; right: 6px; bottom: 6px;
+    border: 1px dashed rgba(107,112,88,0.3);
+    pointer-events: none;
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">Fuck <span>Veterans</span></div>
+  <div class="nav-links">
+    <a href="#mission">Mission</a>
+    <a href="#signup">Join Up</a>
+    <a href="#intel">Intel</a>
+    <a href="#shop">Shop</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero grain-overlay" id="home">
+  <div class="hero-bg"></div>
+  <div class="hero-content">
+    <div class="hero-classified">⬛ Classified Operation ⬛</div>
+    <h1 class="hero-title">Fuck<br><span class="red">Veterans</span></h1>
+    <div class="dog-tags">
+      <div class="dog-tag">Dating</div>
+      <div class="dog-tag">Real Connections</div>
+      <div class="dog-tag">Est. 2024</div>
+    </div>
+    <p class="hero-subtitle-big">
+      We help veterans hook up, fall in love, and find their next mission — together.
+    </p>
+    <p class="hero-body">
+      Civilian life is hard enough. Finding love shouldn't be a combat op. We curate meaningful connections between veterans who've earned it and civilians ready to step up. No bullshit. No algorithms. Just real people, getting it on in all the right ways.
+    </p>
+    <a href="#signup" class="cta-primary">Report For Duty</a>
+  </div>
+</section>
+
+<!-- SIGN UP: VETERANS -->
+<section class="signup-section" id="signup">
+  <div style="max-width: 900px; margin: 0 auto 0;">
+    <div class="section-header">
+      <div class="section-header-line"></div>
+      <span class="section-label">◈ Orders ◈</span>
+      <div class="section-header-line right"></div>
+    </div>
+    <h2 class="section-title" style="text-align:center; margin-bottom: 50px;">
+      Fall <span class="accent">In</span>
+    </h2>
+  </div>
+  <div class="signup-inner">
+    <!-- VETERAN CTA -->
+    <div class="signup-box">
+      <span class="rank">For Veterans</span>
+      <h3>Be First On The Ground</h3>
+      <p>
+        We're building something tighter than a rack in a berthing. Drop your info below for a chance to be featured in our launch video and become one of the OG veterans on the platform. Your service earned you better matches than whatever swipe-left garbage you've been using.
+      </p>
+      <div class="field-group">
+        <label>Name</label>
+        <input type="text" placeholder="First & Last Name">
+      </div>
+      <div class="field-group">
+        <label>Email</label>
+        <input type="email" placeholder="your@email.com">
+      </div>
+      <div class="field-group">
+        <label>Branch of Service</label>
+        <select>
+          <option value="">— Select Branch —</option>
+          <option>Army</option>
+          <option>Navy</option>
+          <option>Marines</option>
+          <option>Air Force</option>
+          <option>Coast Guard</option>
+          <option>Space Force</option>
+          <option>National Guard</option>
+        </select>
+      </div>
+      <div class="field-group">
+        <label>Years Served</label>
+        <input type="text" placeholder="e.g. 2012–2018">
+      </div>
+      <button class="submit-btn">Submit For Duty</button>
+    </div>
+
+    <!-- CIVILIAN CTA -->
+    <div id="civilian" style="display: flex; flex-direction: column; justify-content: center; gap: 0;">
+      <div class="signup-box">
+        <span class="rank">For Civilians</span>
+        <h3>Do Your F*cking Duty</h3>
+        <p>
+          Think you've got what it takes to hang with the hottest veterans in the country? Drop your name on the list. When we open civilian access, you'll be the first to know — and the first to slide into these DMs with purpose.
+        </p>
+        <p style="font-size: 13px; font-style: italic; color: var(--od-light);">
+          *We'll notify you the moment civilian sign-ups go live. No spam. Just orders.
+        </p>
+        <div class="field-group">
+          <label>Email</label>
+          <input type="email" placeholder="your@email.com">
+        </div>
+        <div class="field-group">
+          <label>First Name</label>
+          <input type="text" placeholder="First Name">
+        </div>
+        <button class="submit-btn" style="background: #1e2a1c;">Add Me To The List</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MISSION IN ACTION -->
+<section class="section-dark" id="mission" style="padding: 80px 40px;">
+  <div class="section-header">
+    <div class="section-header-line"></div>
+    <span class="section-label">◈ Field Reports ◈</span>
+    <div class="section-header-line right"></div>
+  </div>
+  <h2 class="section-title" style="text-align:center; margin-bottom: 12px;">
+    The Mission <span class="accent">In Action</span>
+  </h2>
+  <p style="text-align:center; font-family: 'Special Elite', cursive; color: var(--tan); margin-bottom: 50px; font-size: 15px; max-width: 500px; margin-left: auto; margin-right: auto;">
+    Intel from the field. Real veterans. Real moments. Real f*cking results.
+  </p>
+
+  <div class="content-grid">
+    <!-- IG VIDEO 1 -->
+    <div class="fake-ig">
+      <div class="ig-header">
+        <div class="ig-avatar" style="font-size: 11px; font-weight: 800; color: white;">FV</div>
+        <div class="ig-username">fuckveterans</div>
+        <div class="ig-more">···</div>
+      </div>
+      <div class="ig-video-thumb ig-thumb-1">
+        <svg class="ig-person-art" viewBox="0 0 300 300">
+          <circle cx="150" cy="80" r="35" fill="rgba(200,184,122,0.3)"/>
+          <path d="M100 130 Q150 110 200 130 L220 280 L80 280 Z" fill="rgba(74,82,64,0.4)"/>
+          <rect x="60" y="220" width="180" height="3" fill="rgba(107,112,88,0.3)"/>
+          <line x1="40" y1="250" x2="260" y2="250" stroke="rgba(107,112,88,0.15)" stroke-width="1"/>
+          <line x1="40" y1="260" x2="260" y2="260" stroke="rgba(107,112,88,0.1)" stroke-width="1"/>
+        </svg>
+        <div class="ig-reel-badge">
+          <svg viewBox="0 0 24 24" fill="white" opacity="0.9"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z"/></svg>
+        </div>
+        <div class="ig-thumb-overlay">
+          <div class="ig-thumb-tag">🎖️ Operation First Date</div>
+        </div>
+        <div class="ig-play-btn"></div>
+      </div>
+      <div class="ig-bottom">
+        <div class="ig-actions">
+          <svg class="ig-action-icon" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+          <svg class="ig-action-icon" viewBox="0 0 24 24"><path d="M21.99 4c0-1.1-.89-2-1.99-2H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h14l4 4-.01-18z"/></svg>
+          <svg class="ig-action-icon" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81 1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9c-1.66 0-3 1.34-3 3s1.34 3 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.16c-.05.21-.08.43-.08.65 0 1.61 1.31 2.92 2.92 2.92 1.61 0 2.92-1.31 2.92-2.92s-1.31-2.92-2.92-2.92z"/></svg>
+        </div>
+        <div class="ig-likes">4,281 likes</div>
+        <div class="ig-caption"><span class="username">fuckveterans</span> Marine vet meets his match at a Fuck Veterans pop-up in San Diego. Two weeks later, they're inseparable. This is the mission. 🫡❤️</div>
+        <div class="ig-comments">View all 312 comments</div>
+        <div class="ig-time">3 days ago</div>
+      </div>
+    </div>
+
+    <!-- IG VIDEO 2 -->
+    <div class="fake-ig">
+      <div class="ig-header">
+        <div class="ig-avatar" style="font-size: 11px; font-weight: 800; color: white;">FV</div>
+        <div class="ig-username">fuckveterans</div>
+        <div class="ig-more">···</div>
+      </div>
+      <div class="ig-video-thumb ig-thumb-2">
+        <svg class="ig-person-art" viewBox="0 0 300 300">
+          <circle cx="110" cy="90" r="30" fill="rgba(200,184,122,0.3)"/>
+          <circle cx="190" cy="85" r="28" fill="rgba(200,184,122,0.25)"/>
+          <path d="M70 135 Q110 115 150 130 L160 280 L60 280 Z" fill="rgba(74,82,64,0.35)"/>
+          <path d="M150 130 Q190 110 230 135 L240 280 L140 280 Z" fill="rgba(90,100,75,0.3)"/>
+          <line x1="0" y1="285" x2="300" y2="285" stroke="rgba(107,112,88,0.2)" stroke-width="2"/>
+        </svg>
+        <div class="ig-reel-badge">
+          <svg viewBox="0 0 24 24" fill="white" opacity="0.9"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z"/></svg>
+        </div>
+        <div class="ig-thumb-overlay">
+          <div class="ig-thumb-tag">💥 Double Deployment</div>
+        </div>
+        <div class="ig-play-btn"></div>
+      </div>
+      <div class="ig-bottom">
+        <div class="ig-actions">
+          <svg class="ig-action-icon" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+          <svg class="ig-action-icon" viewBox="0 0 24 24"><path d="M21.99 4c0-1.1-.89-2-1.99-2H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h14l4 4-.01-18z"/></svg>
+          <svg class="ig-action-icon" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81 1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9c-1.66 0-3 1.34-3 3s1.34 3 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.16c-.05.21-.08.43-.08.65 0 1.61 1.31 2.92 2.92 2.92 1.61 0 2.92-1.31 2.92-2.92s-1.31-2.92-2.92-2.92z"/></svg>
+        </div>
+        <div class="ig-likes">6,007 likes</div>
+        <div class="ig-caption"><span class="username">fuckveterans</span> Two Army veterans found each other through the platform. Now they're co-deploying into marriage. Congrats to Jake &amp; Sasha 🍾🎖️</div>
+        <div class="ig-comments">View all 489 comments</div>
+        <div class="ig-time">1 week ago</div>
+      </div>
+    </div>
+
+    <!-- IG VIDEO 3 -->
+    <div class="fake-ig">
+      <div class="ig-header">
+        <div class="ig-avatar" style="font-size: 11px; font-weight: 800; color: white;">FV</div>
+        <div class="ig-username">fuckveterans</div>
+        <div class="ig-more">···</div>
+      </div>
+      <div class="ig-video-thumb ig-thumb-3">
+        <svg class="ig-person-art" viewBox="0 0 300 300">
+          <circle cx="150" cy="75" r="38" fill="rgba(200,184,122,0.28)"/>
+          <path d="M90 130 Q150 105 210 130 L230 300 L70 300 Z" fill="rgba(65,75,55,0.45)"/>
+          <rect x="30" y="200" width="240" height="2" fill="rgba(107,112,88,0.2)"/>
+          <circle cx="80" cy="260" r="20" fill="rgba(74,82,64,0.2)"/>
+          <circle cx="220" cy="250" r="15" fill="rgba(74,82,64,0.15)"/>
+        </svg>
+        <div class="ig-reel-badge">
+          <svg viewBox="0 0 24 24" fill="white" opacity="0.9"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z"/></svg>
+        </div>
+        <div class="ig-thumb-overlay">
+          <div class="ig-thumb-tag">🏆 Mission Complete</div>
+        </div>
+        <div class="ig-play-btn"></div>
+      </div>
+      <div class="ig-bottom">
+        <div class="ig-actions">
+          <svg class="ig-action-icon" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+          <svg class="ig-action-icon" viewBox="0 0 24 24"><path d="M21.99 4c0-1.1-.89-2-1.99-2H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h14l4 4-.01-18z"/></svg>
+          <svg class="ig-action-icon" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81 1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9c-1.66 0-3 1.34-3 3s1.34 3 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.16c-.05.21-.08.43-.08.65 0 1.61 1.31 2.92 2.92 2.92 1.61 0 2.92-1.31 2.92-2.92s-1.31-2.92-2.92-2.92z"/></svg>
+        </div>
+        <div class="ig-likes">9,443 likes</div>
+        <div class="ig-caption"><span class="username">fuckveterans</span> Navy vet @realmikecm went from 3 deployments to finding love on shore leave. His words: "This is the only mission I actually wanted to sign up for." 🌊💙</div>
+        <div class="ig-comments">View all 721 comments</div>
+        <div class="ig-time">2 weeks ago</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SUCCESS STORIES -->
+<section style="background: #1a1e16; padding: 80px 40px;" id="intel">
+  <div class="section-header">
+    <div class="section-header-line"></div>
+    <span class="section-label">◈ After Action Reports ◈</span>
+    <div class="section-header-line right"></div>
+  </div>
+  <h2 class="section-title" style="text-align:center; margin-bottom: 12px;">
+    Success <span class="accent">Stories</span>
+  </h2>
+  <p style="text-align:center; font-family: 'Special Elite', cursive; color: var(--tan); margin-bottom: 50px; font-size: 15px; max-width: 500px; margin-left: auto; margin-right: auto;">
+    Mission accomplished. Love deployed. Lives changed.
+  </p>
+
+  <div class="content-grid">
+    <!-- SUCCESS 1 -->
+    <div class="fake-ig" style="max-width: 340px; margin: 0 auto; width: 100%;">
+      <div class="ig-header">
+        <div class="ig-avatar" style="background: linear-gradient(135deg, #4a7c59, #2d5a3d); font-size: 12px; font-weight: 700; color: white; display: flex; align-items: center; justify-content: center;">SR</div>
+        <div style="flex: 1;">
+          <div class="ig-username">sgtsarah.r</div>
+          <div style="font-size: 11px; color: #8e8e8e;">Linked via fuckveterans</div>
+        </div>
+        <div style="font-size: 12px; color: #3897f0; font-weight: 600; font-family: -apple-system, sans-serif; cursor: pointer;">Follow</div>
+      </div>
+      <!-- Static photo post -->
+      <div style="width: 100%; aspect-ratio: 1; background: linear-gradient(145deg, #2a2a1e, #1e2418, #2e2820); position: relative; overflow: hidden; display: flex; align-items: center; justify-content: center;">
+        <svg viewBox="0 0 300 300" style="position: absolute; inset: 0; width: 100%; height: 100%; opacity: 0.35;">
+          <circle cx="130" cy="90" r="32" fill="#c8b87a"/>
+          <circle cx="175" cy="88" r="28" fill="#d4c49a"/>
+          <path d="M80 130 Q130 108 180 128" stroke="#c8b87a" stroke-width="2" fill="none" opacity="0.5"/>
+          <path d="M85 135 Q130 115 175 132 L185 300 L75 300 Z" fill="#4a5240"/>
+          <path d="M168 128 Q185 112 225 130 L235 300 L158 300 Z" fill="#5a6450"/>
+          <text x="150" y="270" text-anchor="middle" font-size="28" fill="rgba(200,184,122,0.5)">💍</text>
+        </svg>
+        <div style="position: absolute; bottom: 10px; right: 10px; background: rgba(200,184,122,0.15); border: 1px solid rgba(200,184,122,0.3); padding: 4px 10px; border-radius: 2px;">
+          <span style="font-family: -apple-system, sans-serif; font-size: 11px; color: rgba(240,232,208,0.8);">📍 Fort Bragg, NC</span>
+        </div>
+      </div>
+      <div class="ig-bottom">
+        <div class="ig-actions">
+          <svg class="ig-action-icon" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+          <svg class="ig-action-icon" viewBox="0 0 24 24"><path d="M21.99 4c0-1.1-.89-2-1.99-2H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h14l4 4-.01-18z"/></svg>
+        </div>
+        <div class="ig-likes">3,891 likes</div>
+        <div class="ig-caption"><span class="username">sgtsarah.r</span> When a dating app actually works... HE PROPOSED 🎖️ Met through @fuckveterans 6 months ago. Army + Army = Unstoppable. #FuckVeterans #VeteranLove #SheFoundHerSoldier</div>
+        <div style="font-size: 13px; color: #3897f0; font-family: -apple-system, sans-serif; margin-top: 4px; cursor: pointer;">#FuckVeterans #VeteranLove #ArmyStrong</div>
+        <div class="ig-time">5 days ago</div>
+      </div>
+    </div>
+
+    <!-- SUCCESS 2 -->
+    <div class="fake-ig" style="max-width: 340px; margin: 0 auto; width: 100%;">
+      <div class="ig-header">
+        <div class="ig-avatar" style="background: linear-gradient(135deg, #1a3a6e, #0d2244); font-size: 12px; font-weight: 700; color: #a0b8d8; display: flex; align-items: center; justify-content: center;">CM2</div>
+        <div style="flex: 1;">
+          <div class="ig-username">chief.marcus.usn</div>
+          <div style="font-size: 11px; color: #8e8e8e;">Linked via fuckveterans</div>
+        </div>
+        <div style="font-size: 12px; color: #3897f0; font-weight: 600; font-family: -apple-system, sans-serif; cursor: pointer;">Follow</div>
+      </div>
+      <div style="width: 100%; aspect-ratio: 1; background: linear-gradient(135deg, #121820, #1a2030, #141e28); position: relative; overflow: hidden; display: flex; align-items: center; justify-content: center;">
+        <svg viewBox="0 0 300 300" style="position: absolute; inset: 0; width: 100%; height: 100%; opacity: 0.3;">
+          <circle cx="150" cy="85" r="35" fill="#b8cce0"/>
+          <path d="M95 135 Q150 110 205 135 L215 300 L85 300 Z" fill="#1a3a5c"/>
+          <path d="M0 240 Q75 220 150 230 Q225 240 300 220 L300 300 L0 300 Z" fill="#0a1520" opacity="0.8"/>
+          <ellipse cx="150" cy="245" rx="80" ry="15" fill="rgba(26,58,92,0.3)"/>
+          <text x="150" y="185" text-anchor="middle" font-size="32" fill="rgba(160,184,216,0.4)">⚓</text>
+        </svg>
+        <div style="position: absolute; top: 10px; left: 10px; background: rgba(26,58,92,0.6); border: 1px solid rgba(100,140,180,0.3); padding: 4px 10px; border-radius: 12px;">
+          <span style="font-family: -apple-system, sans-serif; font-size: 11px; color: rgba(200,220,240,0.9);">🌊 San Diego, CA</span>
+        </div>
+      </div>
+      <div class="ig-bottom">
+        <div class="ig-actions">
+          <svg class="ig-action-icon" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+          <svg class="ig-action-icon" viewBox="0 0 24 24"><path d="M21.99 4c0-1.1-.89-2-1.99-2H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h14l4 4-.01-18z"/></svg>
+        </div>
+        <div class="ig-likes">7,112 likes</div>
+        <div class="ig-caption"><span class="username">chief.marcus.usn</span> 3 deployments, 2 TDYs, 1 failed Hinge era... then @fuckveterans came through. She's a Marine. We argue about everything. I've never been happier. Semper Fi, I guess 😂⚓</div>
+        <div style="font-size: 13px; color: #3897f0; font-family: -apple-system, sans-serif; margin-top: 4px; cursor: pointer;">#FuckVeterans #NavyLife #FindingLove</div>
+        <div class="ig-time">2 weeks ago</div>
+      </div>
+    </div>
+
+    <!-- SUCCESS 3 -->
+    <div class="fake-ig" style="max-width: 340px; margin: 0 auto; width: 100%;">
+      <div class="ig-header">
+        <div class="ig-avatar" style="background: linear-gradient(135deg, #8b1a1a, #5c1010); font-size: 11px; font-weight: 700; color: #f0c0a0; display: flex; align-items: center; justify-content: center;">USMC</div>
+        <div style="flex: 1;">
+          <div class="ig-username">jess.civilian.life</div>
+          <div style="font-size: 11px; color: #8e8e8e;">Linked via fuckveterans</div>
+        </div>
+        <div style="font-size: 12px; color: #3897f0; font-weight: 600; font-family: -apple-system, sans-serif; cursor: pointer;">Follow</div>
+      </div>
+      <div style="width: 100%; aspect-ratio: 1; background: linear-gradient(155deg, #200e0e, #2a1810, #1e1a14); position: relative; overflow: hidden; display: flex; align-items: center; justify-content: center;">
+        <svg viewBox="0 0 300 300" style="position: absolute; inset: 0; width: 100%; height: 100%; opacity: 0.35;">
+          <circle cx="125" cy="85" r="30" fill="#d4a090"/>
+          <circle cx="185" cy="82" r="32" fill="#c8b090"/>
+          <path d="M75 128 Q125 106 175 125 L183 300 L67 300 Z" fill="#6b1f1f" opacity="0.8"/>
+          <path d="M175 125 Q195 108 235 128 L245 300 L165 300 Z" fill="#4a3020" opacity="0.7"/>
+          <text x="150" y="270" text-anchor="middle" font-size="30" fill="rgba(200,100,100,0.4)">❤️‍🔥</text>
+        </svg>
+        <div style="position: absolute; bottom: 10px; left: 10px; background: rgba(100,30,30,0.5); border: 1px solid rgba(200,100,100,0.3); padding: 4px 10px; border-radius: 12px;">
+          <span style="font-family: -apple-system, sans-serif; font-size: 11px; color: rgba(255,200,190,0.9);">❤️ Together 8 months</span>
+        </div>
+      </div>
+      <div class="ig-bottom">
+        <div class="ig-actions">
+          <svg class="ig-action-icon" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+          <svg class="ig-action-icon" viewBox="0 0 24 24"><path d="M21.99 4c0-1.1-.89-2-1.99-2H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h14l4 4-.01-18z"/></svg>
+        </div>
+        <div class="ig-likes">11,882 likes</div>
+        <div class="ig-caption"><span class="username">jess.civilian.life</span> I was skeptical. A dating app called FUCK VETERANS?? But my friend dared me to join the waitlist. Now I'm dating the most disciplined, hilarious, unhinged Marine I've ever met. Do your civilian duty people 🫡🇺🇸 @fuckveterans</div>
+        <div style="font-size: 13px; color: #3897f0; font-family: -apple-system, sans-serif; margin-top: 4px; cursor: pointer;">#FuckVeterans #CivilianDuty #MarineCorps</div>
+        <div class="ig-time">1 month ago</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PODCASTS -->
+<section class="podcast-section" style="padding: 80px 40px;">
+  <div class="section-header">
+    <div class="section-header-line"></div>
+    <span class="section-label">◈ Intel Broadcasts ◈</span>
+    <div class="section-header-line right"></div>
+  </div>
+  <h2 class="section-title" style="text-align:center; margin-bottom: 50px;">
+    As Heard <span class="accent">On</span>
+  </h2>
+  <div class="podcast-grid">
+    <a href="https://www.instagram.com/reel/DWFLSa1DXDR/" target="_blank" class="podcast-card">
+      <div class="podcast-thumb podcast-thumb-ig">
+        <div class="podcast-play"></div>
+      </div>
+      <div class="podcast-info">
+        <h4>Instagram Reel</h4>
+        <p>The founders break down the mission — why dating for veterans has been broken, and how Fuck Veterans is fixing it.</p>
+        <div class="pod-source">Instagram · @fuckveterans</div>
+      </div>
+    </a>
+    <a href="https://play.headliner.app/podcast/a181ce7e611f4d89898d6db9728f3dd1/episode/5711075d-7f0e-43eb-abb9-cc9a4c53d081" target="_blank" class="podcast-card">
+      <div class="podcast-thumb" style="background: linear-gradient(135deg, #1a1e16, #2a3020);">
+        <svg viewBox="0 0 40 40" style="width:40px;height:40px;position:absolute;opacity:0.4;">
+          <circle cx="20" cy="20" r="18" stroke="#c8b87a" stroke-width="1.5" fill="none"/>
+          <circle cx="20" cy="20" r="10" stroke="#c8b87a" stroke-width="1" fill="none"/>
+          <circle cx="20" cy="20" r="3" fill="#c8b87a"/>
+        </svg>
+        <div class="podcast-play"></div>
+      </div>
+      <div class="podcast-info">
+        <h4>Podcast Episode</h4>
+        <p>Full episode covering veteran dating challenges, the Fuck Veterans origin story, and what's next for the platform.</p>
+        <div class="pod-source">Headliner · Full Episode</div>
+      </div>
+    </a>
+  </div>
+</section>
+
+<!-- COMING SOON -->
+<section class="coming-soon-section">
+  <div class="coming-soon-inner">
+    <div class="coming-soon-label">◈ Incoming Transmission ◈</div>
+    <h2 class="coming-soon-title">Cumming<br>Soon</h2>
+    <p class="coming-soon-desc">
+      A fully curated dating experience where <em>verified veterans</em> can connect with the hottest Dependas in the country. Matchmaking with military precision. Love with no casualties.
+    </p>
+    <div class="dependa-badge">Dependa Verified · Coming 2025</div>
+  </div>
+</section>
+
+<!-- CIVILIAN EMAIL SIGNUP -->
+<section class="civilian-section" style="padding: 80px 40px;">
+  <div class="section-header">
+    <div class="section-header-line"></div>
+    <span class="section-label">◈ Civilian Orders ◈</span>
+    <div class="section-header-line right"></div>
+  </div>
+  <div class="civilian-inner">
+    <h2 class="section-title" style="margin-bottom: 16px;">Do Your F*cking <span class="accent">Duty</span></h2>
+    <p>
+      Not a veteran? You can still serve. Add your name to our civilian list and we'll let you know the moment you can sign up to chat with all these hot military people. Consider it your patriotic obligation.
+    </p>
+    <div class="email-row">
+      <input type="email" placeholder="Enter your email, soldier">
+      <button>Deploy Me</button>
+    </div>
+    <p style="font-size: 12px; color: var(--od-light); margin-top: 14px; font-family: 'Oswald', sans-serif; letter-spacing: 2px; text-transform: uppercase;">
+      No spam. Only orders.
+    </p>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section style="background: var(--od-dark); padding: 80px 40px;">
+  <div class="section-header">
+    <div class="section-header-line"></div>
+    <span class="section-label">◈ Unit Briefing ◈</span>
+    <div class="section-header-line right"></div>
+  </div>
+  <div class="about-grid">
+    <div class="about-text">
+      <h2>What We're <span style="color: var(--rust);">About</span></h2>
+      <p>
+        Fuck Veterans isn't just a dating platform — it's a movement built by veterans, for veterans, with civilians who actually give a damn. We were born from the frustration of watching people who gave everything for their country come home to mediocre apps built by people who've never set foot on a base.
+      </p>
+      <p>
+        We curate real connections. We vet (pun absolutely intended) every profile. We build community through events, content, and conversations that actually matter. And yeah, we help people hook up. That's a feature, not a bug.
+      </p>
+      <p>
+        Beyond the matches, we donate a portion of every purchase to veteran mental health programs and transition support orgs. Because love is great, but sometimes you need backup.
+      </p>
+      <div class="patch-row" style="justify-content: flex-start; margin-top: 30px;">
+        <div class="stamp stamp-green">Veteran Owned</div>
+        <div class="stamp stamp-red" style="transform: rotate(3deg);">Vet Approved</div>
+      </div>
+    </div>
+    <div class="about-stats">
+      <div class="stat-box">
+        <span class="stat-number">7</span>
+        <span class="stat-label">Branches Served</span>
+      </div>
+      <div class="stat-box">
+        <span class="stat-number">50+</span>
+        <span class="stat-label">States Represented</span>
+      </div>
+      <div class="stat-box">
+        <span class="stat-number">100%</span>
+        <span class="stat-label">Veteran Verified</span>
+      </div>
+      <div class="stat-box" style="--before-bg: var(--rust);">
+        <span class="stat-number">❤️</span>
+        <span class="stat-label">Donation to Vet Programs</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SHOP -->
+<section class="shop-section" id="shop">
+  <div class="shop-inner">
+    <div style="font-family: 'Oswald', sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 8px; color: var(--od-light); text-transform: uppercase; margin-bottom: 16px;">◈ PX Store ◈</div>
+    <h2>Buy Our Sh*t</h2>
+    <p>
+      Hats. Tees. Mugs. Patches. All the gear you need to rep the mission in the wild. Every dollar goes back into building the platform and supporting veterans.
+    </p>
+    <div class="shop-items-preview">
+      <div class="shop-tag">Embroidered Hats</div>
+      <div class="shop-tag">Tees</div>
+      <div class="shop-tag">Mugs</div>
+      <div class="shop-tag">Patches</div>
+      <div class="shop-tag">Stickers</div>
+    </div>
+    <a href="https://www.fuckveterans.com/category/all-products" target="_blank" class="cta-shop">
+      Enter The PX →
+    </a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">Fuck Veterans</div>
+  <p>
+    Serving those who served. Hook up. Fall in. Find love.<br>
+    Built by veterans. For veterans. With civilians who do their duty.<br><br>
+    <span style="letter-spacing: 3px;">© 2025 FUCK VETERANS LLC · ALL RIGHTS RESERVED</span>
+  </p>
+</footer>
+
+<script>
+  // Smooth scroll for nav links
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      const target = document.querySelector(a.getAttribute('href'));
+      if (target) {
+        e.preventDefault();
+        target.scrollIntoView({ behavior: 'smooth' });
+      }
+    });
+  });
+
+  // Form submission feedback
+  document.querySelectorAll('.submit-btn').forEach(btn => {
+    btn.addEventListener('click', function() {
+      const originalText = this.textContent;
+      this.textContent = '✓ Submission Received';
+      this.style.background = '#2a4a28';
+      this.style.color = '#8bc87a';
+      setTimeout(() => {
+        this.textContent = originalText;
+        this.style.background = '';
+        this.style.color = '';
+      }, 3000);
+    });
+  });
+
+  // Email row button
+  document.querySelectorAll('.email-row button').forEach(btn => {
+    btn.addEventListener('click', function() {
+      this.textContent = '✓ You\'re On The List';
+      this.style.background = '#2a4a28';
+      this.style.borderColor = '#2a4a28';
+      this.style.color = '#8bc87a';
+    });
+  });
+</script>
+
+</body>
+</html>
