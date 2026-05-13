@@ -211,11 +211,9 @@ export default function SignupSection() {
               >
                 Status
               </label>
-              <input
-                type="text"
-                placeholder="e.g. 2012–2018"
+              <select
                 value={veteranForm.status}
-                onChange={(e) => setVeteranForm({ ...veteranForm, years: e.target.value })}
+                onChange={(e) => setVeteranForm({ ...veteranForm, status: e.target.value })}
                 className="w-full px-3.5 py-2.5 border border-b-2 outline-none transition-colors"
                 style={{
                   fontFamily: "'DM Sans', sans-serif",
@@ -225,7 +223,13 @@ export default function SignupSection() {
                   borderBottomColor: 'var(--khaki-dark)',
                   color: 'var(--cream)',
                 }}
-              />
+              >
+                <option value="">— Select Status —</option>
+                <option>Veteran</option>
+                <option>Active Duty</option>
+                <option>Reservist</option>
+                <option>Guard</option>
+              </select>
             </div>
 
             <button
